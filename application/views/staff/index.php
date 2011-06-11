@@ -5,9 +5,9 @@
 <body>
 <h1>Showing Staff [Total = <?php echo $number_rows; ?>]</h1>
 
-<?= anchor('staff/add/', 'Add new staff', array('title' => 'Add a new staff member.')); ?>
+<?php echo anchor('staff/add/', 'Add new staff', array('title' => 'Add a new staff member.')); ?>
  
-<p><?= $flash_message ?></p>
+<p><?php echo $flash_message ?></p>
 
 <table border=1 cellspacing=0>
 <thead>
@@ -24,13 +24,18 @@
 <tbody>
 <?php foreach ($query as $row):?>
 <tr>
-<td><? echo $row->staff_id;?></td>
-<td><? echo $row->role_name;?></td>
-<td><? echo $row->first_name;?></td>
-<td><? echo $row->last_name;?></td>
-<td><? echo $row->middle_name;?></td>
-<td><? echo $row->password_hash;?></td>
-<td><? echo $row->active;?></td>
+
+<td>
+<?php echo anchor('staff/edit/'. ltrim($row->staff_id,'0'), 'EDIT', 'title="Edit Record"');?>
+&nbsp;
+<?php echo anchor('staff/delete/'. ltrim($row->staff_id,'0'), 'DELETE', 'title="Delete Record"');?>
+</td>
+<td><?php echo $row->role_name;?></td>
+<td><?php echo $row->first_name;?></td>
+<td><?php echo $row->last_name;?></td>
+<td><?php echo $row->middle_name;?></td>
+<td><?php echo $row->password_hash;?></td>
+<td><?php echo $row->active;?></td>
 </tr>
 <?php endforeach;?>
 </tbody>

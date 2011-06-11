@@ -12,9 +12,9 @@
 <li>
 <?php echo anchor('incident', 'Incidents', 'title="View Incidents"');?>
 &nbsp;
-<?php echo anchor('incident/add/lnp', 'New LNP', 'title="New Incident"');?>
+<?php echo anchor('incident/add/type1', 'New Type1', 'title="New Incident"');?>
 &nbsp;
-<?php echo anchor('incident/add/lidb', 'New LIDB', 'title="New Incident"');?>
+<?php echo anchor('incident/add/type2', 'New Type2', 'title="New Incident"');?>
 &nbsp;
 <?php echo anchor('incident/add/other', 'New Other', 'title="New Incident"');?>
 </li>
