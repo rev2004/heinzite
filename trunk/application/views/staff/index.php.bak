@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Records for <?php echo $user; ?></title>
+</head>
+<body>
+	<h1>Showing <?php echo $user; ?>'s records for <?php echo $current_date; ?></h1>
+	<ul>
+	<?php foreach ($query as $item):?>
+	
+	<li><?php print_r($item);?></li>
+	
+	<?php endforeach;?>
+	</ul>
+</body>
+</html>
