@@ -12,7 +12,6 @@ class Staff extends CI_Controller {
 
     // information for the password encryption
     private $salt_length;
-    private $salt;
 
     public function __construct()
     {
@@ -65,13 +64,15 @@ class Staff extends CI_Controller {
         $this->form_validation->set_rules('first_name', 'First Name', 'required');
         $this->form_validation->set_rules('last_name', 'Last Name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-
+        $this->form_validation->set_rules('username', 'User Name', 'required');
+        
         if ($this->form_validation->run()) {
             $data = array(
                     'first_name'=>$this->input->post('first_name'),
                     'last_name'=>$this->input->post('last_name'),
                     'middle_name'=>$this->input->post('middle_name'),
-                    'password_hash'=>$this->__generateHash($this->input->post('password'),$this->SALT),
+                    'username'=>$this->input->post('username'),
+                    'password_hash'=>$this->__hash_password($this->input->post('password'),$this->input->post('username')),
                     'active'=>$this->input->post('active'),
                     'role_id'=>$this->input->post('role_id')
                     );
@@ -107,21 +108,10 @@ class Staff extends CI_Controller {
         $this->load->view($this->view_location . 'edit', $data);
     }
 
-    // http://phpsec.org/articles/2005/password-hashing.html
-    private function __generateHash($plainText, $salt = null)
-    {
-        if ($salt === null) {
-            $salt = substr(md5(uniqid(rand(), true)), 0, $this->salt_length);
-        } else {
-            $salt = substr($salt, 0, $this->salt_length);
-        }
-        return $salt . sha1($salt . $plainText);
-    }
-
     // http://stackoverflow.com/questions/401656/secure-hash-and-salt-for-php-passwords
-    function __hash_password($password, $nonce) {
+    function __hash_password($password, $salt = null) {
         $site_key = $config['encryption_key'];
-        return hash_hmac('sha512', $password . $nonce, $site_key);
+        return hash_hmac('sha512', $password . $salt, $site_key);
     }
 
 }

@@ -17,6 +17,7 @@
 <th>First</th>
 <th>Last</th>
 <th>Middle</th>
+<th>Username</th>
 <th>Hash</th>
 <th>Active</th>
 </tr>
@@ -34,6 +35,7 @@
 <td><?php echo $row->first_name;?></td>
 <td><?php echo $row->last_name;?></td>
 <td><?php echo $row->middle_name;?></td>
+<td><?php echo $row->username;?></td>
 <td><?php echo $row->password_hash;?></td>
 <td><?php echo $row->active;?></td>
 </tr>
