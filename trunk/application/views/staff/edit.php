@@ -14,6 +14,8 @@
     <input type="text" name="last_name" value="<?php echo $query->last_name; ?>" /><br/>
     <label>Middle Name</label><br/>
     <input type="text" name="middle_name" value="<?php echo $query->middle_name; ?>" /><br/>
+    <label>Username</label><br/>
+    <input type="text" name="username" value="<?php echo $query->username; ?>" /><br/>
     <label>Password</label><br/>
     <input type="text" name="password" value="<?php echo $query->password_hash; ?>" /><br/>
     <label>Role</label><br/>

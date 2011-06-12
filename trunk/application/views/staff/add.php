@@ -14,10 +14,10 @@
     <input type="text" name="last_name" value="<?php echo set_value('last_name'); ?>" /><br/>
     <label>Middle Name</label><br/>
     <input type="text" name="middle_name" value="<?php echo set_value('middle_name'); ?>" /><br/>
+    <label>Username</label><br/>
+    <input type="text" name="username" value="<?php echo set_value('username'); ?>" /><br/>
     <label>Password</label><br/>
     <input type="text" name="password" value="<?php echo set_value('password'); ?>" /><br/>
-	<label>Role</label><br/>
-	<input type="text" name="role_id" value="<?php echo set_value('role_id'); ?>" /><br/>
 	<label>User is Active</label>
 	<input type="checkbox" name="active" value="1" selected="selected" /><br/>
     <input type="submit" value="Add Staff"/><br/>
