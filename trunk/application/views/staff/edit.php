@@ -9,7 +9,7 @@
  
 <form method="post" action="<?php echo site_url('staff/edit')?>" >
     <label>First Name</label><br/>
-    <input type="text" name="first_name" value="<?php echo $query->first_name; ?>" /><br/>
+    <input type="text" name="first_name" value="<?php echo $query->first_name; echo set_value('first_name'); ?>" /><br/>
     <label>Last Name</label><br/>
     <input type="text" name="last_name" value="<?php echo $query->last_name; ?>" /><br/>
     <label>Middle Name</label><br/>
